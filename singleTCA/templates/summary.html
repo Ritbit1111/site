@@ -1,0 +1,106 @@
+<html>
+
+  <head>
+  <title>Summary TCA</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<style>
+div[class="form"] {
+    border: 1px ;
+    margin-top : 50px;
+    text-align: center;   
+}
+div[id="plot_div"]{
+	height: 100%;
+    width: 100%%;
+    background-color: powderblue;
+}
+</style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript">
+     google.charts.load('current', {'packages':['table']});
+     google.charts.load('current', {'packages':['corechart']});
+     google.charts.setOnLoadCallback(drawTable);
+	 google.charts.setOnLoadCallback(drawChart);
+
+	function drawTable() {
+        var djangosummaryData  = JSON.parse('{{ dfjson_summary|safe }}');
+        var datasummary = google.visualization.arrayToDataTable(djangosummaryData);
+        
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(datasummary, {showRowNumber: true, width: '100%', height: '15%'});
+      }
+    function drawChart() {
+        var djangoData  = JSON.parse('{{ dfjson_data|safe }}');
+		
+       	for (var i=1; i<djangoData.length; i++) {djangoData[i][0] = (new Date(djangoData[i][0]));};
+		//document.write(djangoData);
+		var data = google.visualization.arrayToDataTable(djangoData);
+        var view = new google.visualization.DataView(data);
+        //document.write(data.getValue(2,2))
+		view.setColumns([
+    // reference existing columns by index
+        0, 2, 3, 5, 10, 13,
+	    {
+      calc: function(data, row) {
+        var colorDown = '#ff0000';
+        var colorUp = '#008000';
+
+        if (data.getValue(row, 6) === 'S') {return colorDown;} else if (data.getValue(row, 6) === 'B') {return colorUp;} 
+		return colorUp;},
+      type: 'string',
+      role: 'style'
+    }
+
+    
+  ]);
+  //document.write(view.getColumnLabel(1));
+        //var data = new google.visualization.DataTable(djangoData);
+        var container = document.getElementById('plot_div');
+        var chart = new google.visualization.LineChart(container);
+        var options = {vAxes: {0: {title: 'Market Price'},
+                               1: {title: 'Volume'}},
+                       series:{0: {targetAxisIndex:0},
+                               1: {targetAxisIndex:1, color:'#da8f72'},
+                               2: { pointShape: 'triangle', pointSize: 10, curveType: 'function' },
+							   4: {color:'black'}}, 
+                       tooltip: {isHtml: true}, 
+                       focusTarget: 'category',
+                       explorer: {actions: ['dragToZoom', 'rightClickToReset'] , axis: 'horizontal',keepInBounds: true, maxZoomIn: 8.0}
+                      }
+        chart.draw(view, options);
+      }
+    </script>
+
+		
+	
+  </head>
+  <body>
+    <h2 align="center">EDELWEISS TCA REPORT</h2> 
+    <div class="form">
+        <form method="post" action="summary">
+          {% csrf_token %}
+          <table border="0" align="center">
+            {{locked_form}}
+          </table>
+        </form> 
+    </div>
+    <hr>
+    
+	<H2 align="center">Report Summary</h2>
+    <br>
+    <div id="table_div"></div>
+    
+
+	<form method="POST" action="/TCA/download">
+    {% csrf_token %}
+    <input type="hidden" value="{{ csv }}" name="csv">
+    <input type="hidden" value="{{ portfolio }}" name="portfolio">
+    <input type="hidden" value="{{ ins }}" name="ins">
+    <input type="hidden" value="{{ dt }}" name="dt">
+	<button type="submit"  class="btn btn-primary" >Download</button>
+    <br>  
+	</form>
+	<H2 align="center">Execution plot</h2>
+	<div id="plot_div" style="width: 1500px; height: 500px;"></div>
+  </body>
+</html>

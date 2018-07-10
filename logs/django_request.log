@@ -1,0 +1,113 @@
+2018-07-03 10:57:30,686ms [INFO] django.server: "GET /home/ HTTP/1.1" 200 323
+2018-07-03 10:57:55,098ms [INFO] django.server: "GET /singledayTCA/ HTTP/1.1" 200 1165
+2018-07-03 10:58:03,237ms [INFO] django.server: "POST /singledayTCA/portfolio_list HTTP/1.1" 200 115
+2018-07-04 06:59:59,559ms [INFO] django.server: "GET / HTTP/1.1" 302 0
+2018-07-04 07:00:00,199ms [INFO] django.server: "GET /login/ HTTP/1.1" 200 8628
+2018-07-04 07:00:00,367ms [INFO] django.server: "GET /static/images/edelweiss-login.png HTTP/1.1" 200 8452
+2018-07-04 07:00:05,793ms [INFO] django.server: "POST /login/ HTTP/1.1" 200 8935
+2018-07-04 07:00:09,073ms [INFO] django.server: "POST /login/ HTTP/1.1" 302 0
+2018-07-04 07:00:09,386ms [INFO] django.server: "GET /home HTTP/1.1" 301 0
+2018-07-04 07:00:09,666ms [INFO] django.server: "GET /home/ HTTP/1.1" 200 323
+2018-07-04 07:00:13,730ms [INFO] django.server: "GET /multipledayTCA HTTP/1.1" 301 0
+2018-07-04 07:00:14,142ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3464
+2018-07-04 07:08:46,070ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:08:54,200ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:08:54,568ms [WARNING] django.request: Not Found: /TCA/summary
+2018-07-04 07:08:54,572ms [WARNING] django.server: "GET /TCA/summary HTTP/1.1" 404 2628
+2018-07-04 07:10:20,083ms [WARNING] django.request: Not Found: /TCA/summary
+2018-07-04 07:10:20,087ms [WARNING] django.server: "GET /TCA/summary HTTP/1.1" 404 2628
+2018-07-04 07:10:42,818ms [INFO] django.server: "GET / HTTP/1.1" 302 0
+2018-07-04 07:10:43,066ms [INFO] django.server: "GET /login/ HTTP/1.1" 200 8628
+2018-07-04 07:10:47,134ms [INFO] django.server: "POST /login/ HTTP/1.1" 302 0
+2018-07-04 07:10:47,453ms [INFO] django.server: "GET /home HTTP/1.1" 301 0
+2018-07-04 07:10:47,720ms [INFO] django.server: "GET /home/ HTTP/1.1" 200 323
+2018-07-04 07:10:49,994ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:10:56,841ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:10:56,909ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 07:10:57,153ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 302 0
+2018-07-04 07:10:57,225ms [WARNING] django.request: Not Found: /TCA/login
+2018-07-04 07:10:57,229ms [WARNING] django.server: "GET /TCA/login HTTP/1.1" 404 2622
+2018-07-04 07:11:58,974ms [WARNING] django.request: Not Found: /TCA/login
+2018-07-04 07:11:58,974ms [WARNING] django.server: "GET /TCA/login HTTP/1.1" 404 2622
+2018-07-04 07:12:02,976ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:12:05,819ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:12:05,831ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 07:12:06,151ms [ERROR] django.request: Internal Server Error: /multipledayTCA/summary/
+Traceback (most recent call last):
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\views\generic\base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "E:\PYCHARM\ui\ui\multipleTCA\views.py", line 68, in get
+    start_date      = request.sessions.get("sd")
+AttributeError: 'WSGIRequest' object has no attribute 'sessions'
+2018-07-04 07:12:06,407ms [ERROR] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 500 81682
+2018-07-04 07:15:44,359ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:16:42,534ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:17:10,131ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:43:59,046ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:44:07,337ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:44:07,649ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 07:44:07,926ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:45:20,594ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:45:29,738ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:45:30,053ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 07:45:30,323ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:45:51,263ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:45:56,789ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:45:59,702ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:45:59,949ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 07:46:00,037ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:50:46,334ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:50:56,467ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 07:50:56,687ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 07:50:56,826ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 07:54:39,494ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 07:54:41,148ms [ERROR] django.request: Internal Server Error: /multipledayTCA/
+Traceback (most recent call last):
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\views\generic\base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "E:\PYCHARM\ui\ui\multipleTCA\views.py", line 26, in post
+    if form.is_valid():
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\forms\forms.py", line 179, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\forms\forms.py", line 174, in errors
+    self.full_clean()
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\forms\forms.py", line 377, in full_clean
+    self._clean_form()
+  File "C:\Users\Ritesh\vnv\lib\site-packages\django\forms\forms.py", line 404, in _clean_form
+    cleaned_data = self.clean()
+  File "E:\PYCHARM\ui\ui\multipleTCA\forms.py", line 52, in clean
+    raise forms.ValidationError(_("Start date > End Date"))
+NameError: name '_' is not defined
+2018-07-04 07:54:41,320ms [ERROR] django.server: "POST /multipledayTCA/ HTTP/1.1" 500 100601
+2018-07-04 08:02:01,690ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 08:02:01,918ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 08:02:02,058ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 08:02:04,449ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3446
+2018-07-04 08:02:07,040ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 08:02:07,292ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 08:02:07,388ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 08:03:06,349ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 08:03:08,222ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3453
+2018-07-04 08:03:10,238ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 302 0
+2018-07-04 08:03:10,486ms [INFO] django.server: "GET /multipledayTCA/summary HTTP/1.1" 301 0
+2018-07-04 08:03:10,578ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 08:06:50,383ms [INFO] django.server: "GET /multipledayTCA/summary/ HTTP/1.1" 200 513
+2018-07-04 08:06:51,988ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3453
+2018-07-04 08:06:54,173ms [INFO] django.server: "POST /multipledayTCA/ HTTP/1.1" 200 3567
+2018-07-04 08:07:13,792ms [INFO] django.server: "GET /multipledayTCA/ HTTP/1.1" 200 3453

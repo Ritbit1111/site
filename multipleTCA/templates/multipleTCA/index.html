@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>TCA REPORT</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+			<style>
+					div[class="form"] 
+						{
+							position:fixed;
+							top: 30%;
+							left: 50%;
+							width:28em;
+							height:27em;
+							margin-top: -9em; /*set to a negative number 1/2 of your height*/
+							margin-left: -15em; /*set to a negative number 1/2 of your width*/
+							display: inline-block;
+							padding-top: 50px;
+							padding-left:30px;
+							padding-right:30px;
+							border: 1px solid #ccc;
+							border-radius: 15px;
+							background-color: #FAFAFA;
+						}
+					#heading{
+					font-family: "Times New Roman", Times, serif;
+					font-size: 35px;
+					font-weight: bold;
+					color:#4f0505;
+					
+					}
+					div[id="enddate"]{
+						float:right;
+						padding-right:20px;
+					}
+					div[id="startdate"]{
+						float:left;
+						padding-left:20px;
+					}
+					input[id="btn"]
+					{
+					   background: #2A88AD;
+					   padding: 8px 20px 8px 20px;
+					   border-radius: 5px;
+
+						color: #fff;
+    
+						font: normal 30px 'Bitter', serif;
+    
+						box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+						border: 1px solid #257C9E;
+						font-size: 20px;
+					}
+					div[id="acc"]{
+					padding-left:20px;
+					padding-right:20px;
+					}
+					.logo{
+						width: 50px; 
+						height: 50px; 
+						display: block;
+						font: 0/0 a;
+						text-shadow: none;
+						color: transparent;
+						position:absolute;
+						left:20px;
+						top:20px;
+					}
+					.logo2{
+						
+						display: block;
+						height:50px;
+						font: 0/0 a;
+						text-shadow: none;
+						color: transparent;
+						position:absolute;
+						right:20px;
+						bottom:20px;
+					}
+
+			</style>
+    </head>
+
+    <body>
+	{% if not user.is_authenticated %}
+	You need to login first.<br>
+	Click here to login : <a href='/TCA/login'>Login</a>
+	{% endif %}
+
+	{% if user.is_authenticated %}
+
+	<li><a href="/logout/">Logout</a></li>
+	Trader ID : {{user.username}}
+		<div align="center" class="form">
+					<!-- {% load static %}<img class="logo" src="{% static '/images/edel_logo2.jpg' %}" alt="edelweiss_logo"/> -->
+					<H3 id="heading">Multiple TCA</H3>		
+						<br>					
+					<form method="post">
+					
+					{% csrf_token %}
+						{{form.errors}}
+					<div id="startdate">
+					{{form.start_date}}
+					<small id="DateHelp" class="form-text text-muted">Enter start date</small>
+					</div>
+					
+					<div id="enddate">
+					{{form.end_date}}
+					<small id="DateHelp" class="form-text text-muted">Enter end date</small>
+					</div>
+					
+					<br>
+					<div id="acc">
+					{{form.account_id}}
+					<small id="DateHelp" class="form-text text-muted">Enter Account ID list (comma separated)</small>
+					</div>
+					
+					<br>
+					<input type="submit" value="GET TCA" id="btn">
+					</form>
+			<br>
+			<br>
+				{% load static %}<img class="logo2" src="{% static '/images/edelweiss-login.png' %}" alt="edelweiss_full_logo"/>
+			
+		</div>
+		{% endif %}
+    </body>
+</html>

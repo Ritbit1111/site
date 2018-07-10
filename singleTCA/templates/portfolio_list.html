@@ -1,0 +1,47 @@
+<!-TCA\calc\books\templates\user_form.html->
+
+<html>
+<head>
+    <title>Portfolio list</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+        div {
+            border: 1px ;
+            margin-top : 50px;
+            text-align: center;
+            
+        }
+    </style>
+
+    <script>
+        function sub()
+                {
+                    if(document.getElementById("sel").value!="")
+                        {
+                            document.getElementById("form_id").submit();
+                        }
+                }
+    </script>
+
+</head>
+
+
+<body>
+<h2 align="center">List of your Portfolios for date: {{date}} and account ID: {{id}}</h2>
+
+<div>
+<form method="post" id="form_id" action="instruments_list">
+  {% csrf_token %}
+  <table border="0" align="center">
+        {{port_form}}
+        {{ port_form.errors }}
+        {{ port_form.non_field_errors }}
+  </table>
+
+</form> 
+</div>
+
+
+</body>
+</html>
+
